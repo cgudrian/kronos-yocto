@@ -1,11 +1,9 @@
 require recipes-devtools/gcc/gcc-common.inc
 
 # Third digit in PV should be incremented after a minor release
-
 PV = "4.5.0"
 
 # BINV should be incremented to a revision after a minor gcc release
-
 BINV = "4.5.0"
 
 DEPENDS =+ "mpfr gmp libmpc zlib flex-native"
@@ -21,23 +19,20 @@ LIC_FILES_CHKSUM = "\
     file://COPYING.RUNTIME;md5=fe60d87048567d4fe8c8a0ed2448bcc8 \
 "
 
-BASEURI ?= "${GNU_MIRROR}/gcc/gcc-${PV}/gcc-${PV}.tar.xz"
-#RELEASE ?= "5a5ca2d"
-#BASEURI ?= "https://repo.or.cz/official-gcc.git/snapshot/${RELEASE}.tar.gz;downloadfilename=gcc-${RELEASE}.tar.gz"
+BASEURI ?= "${GNU_MIRROR}/gcc/gcc-${PV}/gcc-${PV}.tar.gz"
+
 SRC_URI = "\
            ${BASEURI} \
 "
+
 S = "${TMPDIR}/work-shared/gcc-${PV}-${PR}/gcc-${PV}"
-SRC_URI[sha256sum] = "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
-# For dev release snapshotting
-#S = "${TMPDIR}/work-shared/gcc-${PV}-${PR}/official-gcc-${RELEASE}"
-#B = "${WORKDIR}/gcc-${PV}/build.${HOST_SYS}.${TARGET_SYS}"
+SRC_URI[sha256sum] = "d971ea821d2a9bcb4426e9a4a16aee5fb09e688949c1955f64a1f67daf08a063"
 
 # Language Overrides
 FORTRAN = ""
 JAVA = ""
 
-LTO = "--enable-lto"
+LTO = ""
 SSP ?= "--disable-libssp"
 SSP_mingw32 = "--enable-libssp"
 
