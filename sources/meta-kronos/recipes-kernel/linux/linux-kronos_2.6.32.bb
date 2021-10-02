@@ -1,5 +1,5 @@
 SUMMARY = "Linux kernel for the Korg Kronos"
-LICENSE = "GPL"
+LICENSE = "GPLv2"
 
 SRC_URI = "\
     git://github.com/cgudrian/linux-kronos.git;protocol=https;branch=v2.6.32.11-kronos \
@@ -19,9 +19,10 @@ COMPATIBLE_MACHINE = "korg-kronos"
 
 KERNEL_VERSION_SANITY_SKIP = "1"
 
-DEBUG_PREFIX_MAP ?= "-fdebug-prefix-map=${WORKDIR}=/usr/src/debug/${PN}/${EXTENDPE}${PV}-${PR} \
-                     -fdebug-prefix-map=${STAGING_DIR_HOST}= \
-                     -fdebug-prefix-map=${STAGING_DIR_NATIVE}= \
+DEBUG_PREFIX_MAP = "-fdebug-prefix-map=${WORKDIR}=/usr/src/debug/${PN}/${EXTENDPE}${PV}-${PR} \
+                    -fdebug-prefix-map=${STAGING_DIR_HOST}= \
+                    -fdebug-prefix-map=${STAGING_DIR_NATIVE}= \
 "
 
 KERNEL_CC = "${CCACHE}${HOST_PREFIX}gcc ${HOST_CC_KERNEL_ARCH} ${DEBUG_PREFIX_MAP} -fdebug-prefix-map=${STAGING_KERNEL_DIR}=${KERNEL_SRC_PATH}"
+KERNEL_LD = "${CCACHE}${HOST_PREFIX}ld ${HOST_LD_KERNEL_ARCH}"
