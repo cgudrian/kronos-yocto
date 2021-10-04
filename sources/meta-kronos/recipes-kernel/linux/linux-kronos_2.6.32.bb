@@ -12,6 +12,9 @@ PV = "2.6.32+git${SRCPV}"
 
 KERNEL_CONFIG_COMMAND = "oe_runmake_call -C ${S} CC="${KERNEL_CC}" LD="${KERNEL_LD}" O=${B} defconfig || oe_runmake -C ${S} O=${B} CC="${KERNEL_CC}" LD="${KERNEL_LD}" noconfig"
 
+#PREFERRED_VERSION_binutils-cross-${TARGET_ARCH} = "2.20.1"
+#PREFERRED_VERSION_gcc-cross-${TARGET_ARCH} = "4.5.0"
+
 inherit kernel
 inherit kernel-yocto
 
