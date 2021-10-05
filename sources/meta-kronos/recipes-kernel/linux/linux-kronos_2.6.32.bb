@@ -5,7 +5,7 @@ SRC_URI = "\
     git://github.com/cgudrian/linux-kronos.git;protocol=https;branch=v2.6.32.11-kronos \
     file://defconfig \
 "
-SRCREV = "${AUTOREV}"
+SRCREV = "e279ebf11edc750ca2252e2ff66da0e37d82ddb6"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 PV = "2.6.32+git${SRCPV}"
